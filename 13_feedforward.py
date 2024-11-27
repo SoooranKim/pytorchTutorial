@@ -95,9 +95,9 @@ with torch.no_grad():
         labels = labels.to(device)
         outputs = model(images)
         # max returns (value ,index)
-        _, predicted = torch.max(outputs.data, 1)
-        n_samples += labels.size(0)
-        n_correct += (predicted == labels).sum().item()
+        _, predicted = torch.max(outputs.data, 1) # torch.max(input, dim): 주어진 텐서 input에서 지정된 차원(dim)별로 최댓값과 해당 인덱스를 반환함
+        n_samples += labels.size(0) #labels.size(0)는 배치 크기를 반환
+        n_correct += (predicted == labels).sum().item() #각 요소를 비교하여 맞으면 True(1), 틀리면 False(0)를 반환
 
     acc = 100.0 * n_correct / n_samples
     print(f'Accuracy of the network on the 10000 test images: {acc} %')
