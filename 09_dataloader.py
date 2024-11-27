@@ -62,18 +62,18 @@ print(features, labels)
 train_loader = DataLoader(dataset=dataset,
                           batch_size=4,
                           shuffle=True,
-                          num_workers=2)
+                          num_workers=2) #이건 꼭 안써도 됨
 
 # convert to an iterator and look at one random sample
-dataiter = iter(train_loader)
+dataiter = iter(train_loader) 
 data = next(dataiter)
 features, labels = data
-print(features, labels)
+print(features, labels) #지금 batch_size = 4이니까, 이 줄 실행하면 features 4개, lables 4개 출력됨.
 
 # Dummy Training loop
 num_epochs = 2
 total_samples = len(dataset)
-n_iterations = math.ceil(total_samples/4)
+n_iterations = math.ceil(total_samples/4) #batch size가 4니까 4로 나눠주는 거겠지.
 print(total_samples, n_iterations)
 for epoch in range(num_epochs):
     for i, (inputs, labels) in enumerate(train_loader):
