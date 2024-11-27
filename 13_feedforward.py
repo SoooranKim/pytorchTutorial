@@ -9,7 +9,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Hyper-parameters 
 input_size = 784 # 28x28
-hidden_size = 500 
+hidden_size = 500 #은닉층 노드 개수
 num_classes = 10
 num_epochs = 2
 batch_size = 100
