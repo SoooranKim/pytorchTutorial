@@ -89,7 +89,7 @@ for epoch in range(num_epochs):
 train_dataset = torchvision.datasets.MNIST(root='./data', 
                                            train=True, 
                                            transform=torchvision.transforms.ToTensor(),  
-                                           download=True)
+                                           download=True) #지정된 root 경로에 데이터가 없으면 인터넷에서 다운로드
 
 train_loader = DataLoader(dataset=train_dataset, 
                                            batch_size=3, 
