@@ -65,7 +65,7 @@ class ConvNet(nn.Module):
         # -> n, 3, 32, 32
         x = self.pool(F.relu(self.conv1(x)))  # -> n, 6, 14, 14
         x = self.pool(F.relu(self.conv2(x)))  # -> n, 16, 5, 5
-        x = x.view(-1, 16 * 5 * 5)            # -> n, 400
+        x = x.view(-1, 16 * 5 * 5)            # -> n, 400 여기서 -1자리에는 batch size가 와야겠지
         x = F.relu(self.fc1(x))               # -> n, 120
         x = F.relu(self.fc2(x))               # -> n, 84
         x = self.fc3(x)                       # -> n, 10
