@@ -48,6 +48,11 @@ l2 = cross_entropy(Y, Y_pred_bad)
 print(f'Loss1 numpy: {l1:.4f}')
 print(f'Loss2 numpy: {l2:.4f}')
 
+
+
+
+#이 앞부분은 필요 없겠음
+
 # CrossEntropyLoss in PyTorch (applies Softmax)
 # nn.LogSoftmax + nn.NLLLoss
 # NLLLoss = negative log likelihood loss
@@ -70,7 +75,7 @@ print(f'PyTorch Loss1: {l1.item():.4f}')
 print(f'PyTorch Loss2: {l2.item():.4f}')
 
 # get predictions
-_, predictions1 = torch.max(Y_pred_good, 1)
+_, predictions1 = torch.max(Y_pred_good, 1) #_는 일반적으로 사용하지 않을 값을 무시하거나 임시 변수로 사용할 때 활용함. torch.max는 최댓값과 index를 반환하는데, 여기서는 최댓값이 필요 없으니까 _, 쓰는것임
 _, predictions2 = torch.max(Y_pred_bad, 1)
 print(f'Actual class: {Y.item()}, Y_pred1: {predictions1.item()}, Y_pred2: {predictions2.item()}')
 
