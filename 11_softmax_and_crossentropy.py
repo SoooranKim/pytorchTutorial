@@ -144,4 +144,6 @@ class NeuralNet2(nn.Module):
 model = NeuralNet2(input_size=28*28, hidden_size=5, num_classes=3)
 criterion = nn.CrossEntropyLoss()  # (applies Softmax)
 
+#그니까 CEL 쓸때 모델 안에서 Softmax를 써버리면 CEL을 쓰는 의미가 없잖아. 근데, inference할때는 Softmax써야지
+
 
