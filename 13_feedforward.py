@@ -65,16 +65,16 @@ criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)  
 
 # Train the model
-n_total_steps = len(train_loader)
-for epoch in range(num_epochs):
-    for i, (images, labels) in enumerate(train_loader):  
+n_total_steps = len(train_loader) # len(train_loader)는 train_loader에 몇개의 batch가 있는지
+for epoch in range(num_epochs): # 이건 epoch 루프이고
+    for i, (images, labels) in enumerate(train_loader): # 이건 batch 루프
         # origin shape: [100, 1, 28, 28] 여기서는 batch size가 100이었기 때문에 이렇게 된것임, 컬러채널 없으니까 1
         # resized: [100, 784] 
         images = images.reshape(-1, 28*28).to(device)
         labels = labels.to(device)
         
         # Forward pass
-        outputs = model(images)
+        outputs = model(images) # input_size = 784인데 [100,784]를 넣을 수 있는지 궁금했음. 그런데 가능함. 100은 batch size를 의미하니까. 
         loss = criterion(outputs, labels)
         
         # Backward and optimize
