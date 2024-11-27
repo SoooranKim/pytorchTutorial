@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Hyper-parameters 
-input_size = 784 # 28x28
+input_size = 784 # 28x28 원래 mnist dataset data의 크기가 28x28이라서 이렇게 설정한것임
 hidden_size = 500 #은닉층 노드 개수
 num_classes = 10
 num_epochs = 2
@@ -68,8 +68,8 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 n_total_steps = len(train_loader)
 for epoch in range(num_epochs):
     for i, (images, labels) in enumerate(train_loader):  
-        # origin shape: [100, 1, 28, 28]
-        # resized: [100, 784]
+        # origin shape: [100, 1, 28, 28] 여기서는 batch size가 100이었기 때문에 이렇게 된것임, 컬러채널 없으니까 1
+        # resized: [100, 784] 
         images = images.reshape(-1, 28*28).to(device)
         labels = labels.to(device)
         
