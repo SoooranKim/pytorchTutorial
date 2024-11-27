@@ -90,7 +90,7 @@ for epoch in range(num_epochs): # 이건 epoch 루프이고
 with torch.no_grad():
     n_correct = 0
     n_samples = 0
-    for images, labels in test_loader:
+    for images, labels in test_loader: #test set도 batch 단위로 제공될테니
         images = images.reshape(-1, 28*28).to(device)
         labels = labels.to(device)
         outputs = model(images)
