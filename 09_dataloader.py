@@ -34,7 +34,7 @@ class WineDataset(Dataset):
         xy = np.loadtxt('./data/wine/wine.csv', delimiter=',', dtype=np.float32, skiprows=1)
         self.n_samples = xy.shape[0]
 
-        # here the first column is the class label, the rest are the features 여기서 tensor로 바꿔줌. 이 과정 안했으면 계속 numpy겠지. 근데 numpy어도 transformer ToTensor해주면 되긴함.
+        # here the first column is the class label, the rest are the features 여기서 tensor로 바꿔줌. 이 과정 안했으면 계속 numpy겠지. 
         self.x_data = torch.from_numpy(xy[:, 1:]) # size [n_samples, n_features]
         self.y_data = torch.from_numpy(xy[:, [0]]) # size [n_samples, 1]
 
