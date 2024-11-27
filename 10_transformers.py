@@ -42,7 +42,7 @@ import numpy as np
 
 class WineDataset(Dataset):
 
-    def __init__(self, transform=None):
+    def __init__(self, transform=None): #일단 데이터 만들때 transform 디폴트 값을 None을 해놓고
         xy = np.loadtxt('./data/wine/wine.csv', delimiter=',', dtype=np.float32, skiprows=1)
         self.n_samples = xy.shape[0]
 
@@ -55,7 +55,7 @@ class WineDataset(Dataset):
     def __getitem__(self, index):
         sample = self.x_data[index], self.y_data[index]
 
-        if self.transform:
+        if self.transform:  #transform이 None이 아니라면
             sample = self.transform(sample)
 
         return sample
