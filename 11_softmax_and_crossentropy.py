@@ -87,7 +87,7 @@ Y = torch.tensor([2, 0, 1])
 
 # input is of size nBatch x nClasses = 3 x 3
 # Y_pred are logits (not softmax)
-Y_pred_good = torch.tensor(
+Y_pred_good = torch.tensor( # 이런식으로 multiple sample에 대해 계산할 수 있음
     [[0.1, 0.2, 3.9], # predict class 2
     [1.2, 0.1, 0.3], # predict class 0
     [0.3, 2.2, 0.2]]) # predict class 1
