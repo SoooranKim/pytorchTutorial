@@ -16,7 +16,7 @@ import numpy as np
 # -> squashes the output to be between 0 and 1 = probability
 # sum of all probabilities is 1
 def softmax(x):
-    return np.exp(x) / np.sum(np.exp(x), axis=0)
+    return np.exp(x) / np.sum(np.exp(x), axis=0) #여기서 axis=0은 행 방향으로 합계를 계산한다는 뜻
 
 x = np.array([2.0, 1.0, 0.1])
 outputs = softmax(x)
