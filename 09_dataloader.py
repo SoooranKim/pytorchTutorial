@@ -65,6 +65,7 @@ train_loader = DataLoader(dataset=dataset,
                           num_workers=2) #이건 꼭 안써도 됨
 
 # convert to an iterator and look at one random sample
+# 이건 그냥 확인해보기 위한 코드이고, 트레이닝할때 필요한건 아님
 dataiter = iter(train_loader) 
 data = next(dataiter)
 features, labels = data
