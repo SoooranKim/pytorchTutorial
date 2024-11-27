@@ -1,0 +1,13 @@
+터미널에서
+python train.py
+하면되고
+
+python train.py --help
+하면 인자를 확인할 수 있음
+
+인자 확인하면
+python train.py --epochs 10 --batch_size 32 --lr 0.001
+이런식으로 해주면 됨
+
+data.py, model.py, train.py 파일이 같은 디렉토리에 있고, 코드가 제대로 작성되어 있다면 python train.py 명령만으로 트레이닝이 실행됩니다.
+단, import 제대로 되어있어야함
