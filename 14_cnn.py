@@ -50,6 +50,7 @@ images, labels = next(dataiter)
 # show images
 imshow(torchvision.utils.make_grid(images))
 
+#output size는 (W-F+2P)/S+1
 class ConvNet(nn.Module):
     def __init__(self):
         super(ConvNet, self).__init__()
