@@ -96,7 +96,7 @@ print(type(features), type(labels))
 print(features, labels)
 
 print('\nWith Tensor and Multiplication Transform')
-composed = torchvision.transforms.Compose([ToTensor(), MulTransform(4)])
+composed = torchvision.transforms.Compose([ToTensor(), MulTransform(4)]) #여러 transformer 적용하려고
 dataset = WineDataset(transform=composed)
 first_data = dataset[0]
 features, labels = first_data
