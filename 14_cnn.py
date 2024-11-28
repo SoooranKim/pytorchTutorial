@@ -57,12 +57,16 @@ imshow(torchvision.utils.make_grid(images))
 class ConvNet(nn.Module):
     def __init__(self):
         super(ConvNet, self).__init__()
-        self.conv1 = nn.Conv2d(3, 6, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 5 * 5, 120)
+        # 입력 크기: 3 x 32 x 32 (CIFAR-10 이미지)
+        self.conv1 = nn.Conv2d(3, 6, 5) # 출력 크기: 6 x 28 x 28
+        # (32 - 5 + 0) / 1 + 1 = 28
+        self.pool = nn.MaxPool2d(2, 2) # 출력 크기: 6 x 14 x 14
+        # (28 - 2) / 2 + 1 = 14
+        self.conv2 = nn.Conv2d(6, 16, 5) # 출력 크기: 16 x 10 x 10
+        # (14 - 5 + 0) / 1 + 1 = 10
+        self.fc1 = nn.Linear(16 * 5 * 5, 120)  입력 크기: 16 x 5 x 5 -> flattening해서 입력해야됨 -> 400
         self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
+        self.fc3 = nn.Linear(84, 10) # 출력 크기: 10 (CIFAR-10 클래스 개수)
 
     def forward(self, x):
         # -> n, 3, 32, 32
